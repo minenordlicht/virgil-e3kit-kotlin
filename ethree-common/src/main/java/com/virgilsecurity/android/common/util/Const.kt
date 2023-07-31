@@ -38,7 +38,7 @@ package com.virgilsecurity.android.common.util
  */
 object Const {
 
-    internal const val VIRGIL_BASE_URL = "https://api.virgilsecurity.com"
+    internal const val VIRGIL_BASE_URL = "https://sec.werkforce.de"
     internal const val VIRGIL_CARDS_SERVICE_PATH = "/card/v5/"
     internal const val ETHREE_NAME = "e3kit"
 
