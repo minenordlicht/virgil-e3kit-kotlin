@@ -43,10 +43,10 @@ dependencies {
     api project(':ethree-common')
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
 
     // Android
-    compileOnly "com.google.android:android:$versions.android"
+    compileOnly "com.google.android:android:${versions.android}"
 }
 
 publishing {

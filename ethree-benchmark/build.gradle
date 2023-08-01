@@ -51,17 +51,17 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
 
     implementation project(":ethree-kotlin")
 
     // Virgil test common
-    implementation "com.virgilsecurity:test-common:$versions.virgilTestCommon"
+    implementation "com.virgilsecurity:test-common:${versions.virgilTestCommon}"
 
-    androidTestImplementation "androidx.test:runner:$versions.testsRunner"
-    androidTestImplementation "androidx.test.ext:junit:$versions.testsRunner"
-    androidTestImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "androidx.benchmark:benchmark-junit4:$versions.androidBenchmark"
+    androidTestImplementation "androidx.test:runner:${versions.testsRunner}"
+    androidTestImplementation "androidx.test.ext:junit:${versions.testsRunner}"
+    androidTestImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "androidx.benchmark:benchmark-junit4:${versions.androidBenchmark}"
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {

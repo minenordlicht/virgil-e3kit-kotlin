@@ -45,20 +45,20 @@ dependencies {
     implementation project(':ethree-enclave')
 
     // Virgil
-    androidTestImplementation "com.virgilsecurity.sdk:android-utils:$versions.virgilSdk"
+    androidTestImplementation "com.virgilsecurity.sdk:android-utils:${versions.virgilSdk}"
 
     // Kotlin
-    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    implementation "androidx.appcompat:appcompat:$versions.appCompat"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+    implementation "androidx.appcompat:appcompat:${versions.appCompat}"
 
     // Tests core
-    testImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "androidx.test.ext:junit:$versions.testsRunner"
-    androidTestImplementation "androidx.test:runner:$versions.testsRunner"
-    androidTestImplementation "androidx.test:rules:$versions.testsRunner"
+    testImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "androidx.test.ext:junit:${versions.testsRunner}"
+    androidTestImplementation "androidx.test:runner:${versions.testsRunner}"
+    androidTestImplementation "androidx.test:rules:${versions.testsRunner}"
 
     // Virgil test common
-    implementation "com.virgilsecurity:test-common:$versions.virgilTestCommon"
+    implementation "com.virgilsecurity:test-common:${versions.virgilTestCommon}"
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
