@@ -37,7 +37,8 @@ plugins {
 android {
     compileSdk = 33
     defaultConfig {
-        minSdkVersion androidOptions.minSdkVersionRegular
+        minSdk = 24
+        targetSdk = 33
         consumerProguardFiles 'proguard-rules.txt'
     }
     compileOptions {
@@ -55,19 +56,6 @@ dependencies {
     api project(':ethree-common')
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
 
-    // Android
-//    compileOnly "com.google.android:android:${versions.android}"
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId = 'ethree'
-            pom {
-                name = 'Virgil E3Kit Java/Kotlin SDK'
-            }
-        }
-    }
 }

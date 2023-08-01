@@ -37,7 +37,8 @@ plugins {
 android {
     compileSdk = 33
     defaultConfig {
-        minSdkVersion androidOptions.minSdkVersionEnclave
+        targetSdk = 33
+        minSdk = 24
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'proguard-rules.txt'
     }
@@ -56,22 +57,10 @@ dependencies {
     api project(':ethree-common')
 
     // Virgil
-    implementation "com.virgilsecurity.sdk:android-utils:${versions.virgilSdk}"
+    implementation "com.virgilsecurity.sdk:android-utils:7.3.2"
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
 
-    // Android
-    compileOnly "com.google.android:android:${versions.android}"
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId = 'ethree-enclave'
-            pom {
-                name = 'Virgil E3Kit Java/Kotlin SDK with Secure Enclave'
-            }
-        }
-    }
-}
