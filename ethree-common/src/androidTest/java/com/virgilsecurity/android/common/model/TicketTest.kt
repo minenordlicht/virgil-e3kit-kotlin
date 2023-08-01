@@ -35,7 +35,7 @@ package com.virgilsecurity.android.common.model
 
 import android.os.Parcel
 import android.util.Log
-import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.runner.AndroidJUnit4
 import com.virgilsecurity.android.common.exception.GroupException
 import com.virgilsecurity.common.extension.toData
 import com.virgilsecurity.common.model.Data

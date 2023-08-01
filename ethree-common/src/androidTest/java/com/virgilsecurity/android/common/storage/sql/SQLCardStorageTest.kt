@@ -34,7 +34,7 @@
 package com.virgilsecurity.android.common.storage.sql
 
 import androidx.room.Room
-import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.runner.AndroidJUnit4
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.virgilsecurity.android.common.storage.CardStorage
