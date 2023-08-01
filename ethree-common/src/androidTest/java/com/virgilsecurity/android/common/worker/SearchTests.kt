@@ -33,7 +33,7 @@
 
 package com.virgilsecurity.android.common.worker
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.runner.AndroidJUnit4
 import com.virgilsecurity.android.common.callback.OnGetTokenCallback
 import com.virgilsecurity.android.common.callback.OnKeyChangedCallback
 import com.virgilsecurity.android.common.exception.FindUsersException

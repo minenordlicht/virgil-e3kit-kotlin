@@ -64,6 +64,8 @@ buildscript {
             // Tests
             junit           : '4.13.2',
             testsRunner     : '1.5.2',
+            testsRules      : '1.5.0',
+            extJunit        : '1.1.5',
             espresso        : '3.0.2',
             virgilTestCommon: '0.1',
 
@@ -71,11 +73,11 @@ buildscript {
             androidBenchmark: '1.1.1',
     ]
     ext.androidOptions = [
-            compileSdkVersion   : 28,
-            minSdkVersionEnclave: 23,
-            minSdkVersionRegular: 21,
-            targetSdkVersion    : 28,
-            buildToolsVersion   : "28.0.3"
+            compileSdkVersion   : 33,
+            minSdkVersionEnclave: 24,
+            minSdkVersionRegular: 24,
+            targetSdkVersion    : 33,
+//            buildToolsVersion   : "28.0.3"
     ]
     repositories {
         google()
@@ -176,7 +178,6 @@ subprojects {
 
     android {
         compileSdkVersion androidOptions.compileSdkVersion
-        buildToolsVersion androidOptions.buildToolsVersion
 
         defaultConfig {
             targetSdkVersion androidOptions.targetSdkVersion

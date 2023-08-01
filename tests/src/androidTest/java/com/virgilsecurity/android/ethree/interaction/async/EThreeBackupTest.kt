@@ -34,7 +34,7 @@
 package com.virgilsecurity.android.ethree.interaction.async
 
 import android.util.Log
-import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.runner.AndroidJUnit4
 import com.virgilsecurity.android.common.callback.OnGetTokenCallback
 import com.virgilsecurity.android.common.exception.EThreeException
 import com.virgilsecurity.android.ethree.interaction.EThree
