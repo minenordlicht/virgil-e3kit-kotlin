@@ -34,51 +34,98 @@
 buildscript {
     ext.kotlin_version = '1.3.61'
 
-    ext.versions = [
-            // Virgil
-            virgilSdk       : '7.3.2',
-            virgilCrypto    : '0.15.2',
-            pythia          : '0.3.7',
-            ratchet         : '0.1.4',
+    ext {
+        versions = [
+                // Virgil
+                virgilSdk       : '7.3.2',
+                virgilCrypto    : '0.15.2',
+                pythia          : '0.3.7',
+                ratchet         : '0.1.4',
 
-            // Kotlin
-            kotlin          : '1.8.10',
-            coroutines      : '1.3.3',
+                // Kotlin
+                kotlin          : '1.8.10',
+                coroutines      : '1.3.3',
 
-            // Gradle
-            gradle          : '7.4.2',
+                // Gradle
+                gradle          : '7.4.2',
 
-            // Maven
-            mavenPublish    : '3.6.2',
+                // Maven
+                mavenPublish    : '3.6.2',
 
-            // Android
-            android         : '4.1.1.4',
-            appCompat       : '1.1.0',
+                // Android
+                android         : '4.1.1.4',
+                appCompat       : '1.1.0',
 
-            // Room
-            room            : '2.2.3',
+                // Room
+                room            : '2.2.3',
 
-            // Docs
-            dokka           : '0.9.18',
+                // Docs
+                dokka           : '0.9.18',
 
-            // Tests
-            junit           : '4.13.2',
-            testsRunner     : '1.5.2',
-            testsRules      : '1.5.0',
-            extJunit        : '1.1.5',
-            espresso        : '3.0.2',
-            virgilTestCommon: '0.1',
+                // Tests
+                junit           : '4.13.2',
+                testsRunner     : '1.5.2',
+                testsRules      : '1.5.0',
+                extJunit        : '1.1.5',
+                espresso        : '3.0.2',
+                virgilTestCommon: '0.1',
 
-            // Benchmark
-            androidBenchmark: '1.1.1',
-    ]
-    ext.androidOptions = [
-            compileSdkVersion   : 33,
-            minSdkVersionEnclave: 24,
-            minSdkVersionRegular: 24,
-            targetSdkVersion    : 33,
-//            buildToolsVersion   : "28.0.3"
-    ]
+                // Benchmark
+                androidBenchmark: '1.1.1',
+        ]
+        androidOptions = [
+                compileSdkVersion   : 33,
+                minSdkVersionEnclave: 24,
+                minSdkVersionRegular: 24,
+                targetSdkVersion    : 33,
+        ]
+    }
+//    ext.versions = [
+//            // Virgil
+//            virgilSdk       : '7.3.2',
+//            virgilCrypto    : '0.15.2',
+//            pythia          : '0.3.7',
+//            ratchet         : '0.1.4',
+//
+//            // Kotlin
+//            kotlin          : '1.8.10',
+//            coroutines      : '1.3.3',
+//
+//            // Gradle
+//            gradle          : '7.4.2',
+//
+//            // Maven
+//            mavenPublish    : '3.6.2',
+//
+//            // Android
+//            android         : '4.1.1.4',
+//            appCompat       : '1.1.0',
+//
+//            // Room
+//            room            : '2.2.3',
+//
+//            // Docs
+//            dokka           : '0.9.18',
+//
+//            // Tests
+//            junit           : '4.13.2',
+//            testsRunner     : '1.5.2',
+//            testsRules      : '1.5.0',
+//            extJunit        : '1.1.5',
+//            espresso        : '3.0.2',
+//            virgilTestCommon: '0.1',
+//
+//            // Benchmark
+//            androidBenchmark: '1.1.1',
+//    ]
+
+//    ext.androidOptions = [
+//            compileSdkVersion   : 33,
+//            minSdkVersionEnclave: 24,
+//            minSdkVersionRegular: 24,
+//            targetSdkVersion    : 33,
+////            buildToolsVersion   : "28.0.3"
+//    ]
     repositories {
         google()
         jcenter()
