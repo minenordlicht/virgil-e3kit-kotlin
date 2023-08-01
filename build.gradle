@@ -177,10 +177,11 @@ subprojects {
     }
 
     android {
-        compileSdkVersion androidOptions.compileSdkVersion
+        compileSdkVersion 33
 
         defaultConfig {
-            targetSdkVersion androidOptions.targetSdkVersion
+            targetSdkVersion 33
+            minSdkVersion 24
         }
         buildTypes {
             debug {

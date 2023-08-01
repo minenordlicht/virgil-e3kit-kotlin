@@ -33,7 +33,7 @@
 
 android {
     defaultConfig {
-        minSdkVersion androidOptions.minSdkVersionEnclave
+        targetSdk = 33
         applicationId "com.virgilsecurity.android.testsenclave"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

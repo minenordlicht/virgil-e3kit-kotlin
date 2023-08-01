@@ -37,7 +37,8 @@ plugins {
 android {
     compileSdk = 33
     defaultConfig {
-        minSdkVersion androidOptions.minSdkVersionRegular
+        minSdk = 24
+        targetSdk = 33
         consumerProguardFiles 'proguard-rules.txt'
 
         javaCompileOptions {
