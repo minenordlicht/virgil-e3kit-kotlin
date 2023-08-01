@@ -45,7 +45,7 @@ dependencies {
     implementation project(':ethree-kotlin')
 
     // Kotlin
-    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10"
+//    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10"
     implementation "androidx.appcompat:appcompat:1.1.0"
 
     // Tests core
