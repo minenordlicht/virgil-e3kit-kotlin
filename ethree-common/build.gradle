@@ -51,41 +51,41 @@ android {
 
 dependencies {
     // Kotlin
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
 
     // Virgil SDK
-    api "com.virgilsecurity.sdk:sdk-android:$versions.virgilSdk"
-    api "com.virgilsecurity.sdk:crypto-android:$versions.virgilSdk"
+    api "com.virgilsecurity.sdk:sdk-android:${versions.virgilSdk}"
+    api "com.virgilsecurity.sdk:crypto-android:${versions.virgilSdk}"
 
     // Virgil Pythia
-    api "com.virgilsecurity:pythia-android:$versions.pythia"
-    api "com.virgilsecurity.crypto:pythia-android:$versions.virgilCrypto"
+    api "com.virgilsecurity:pythia-android:${versions.pythia}"
+    api "com.virgilsecurity.crypto:pythia-android:${versions.virgilCrypto}"
 
     // Virgil Ratchet
-    api "com.virgilsecurity:ratchet-android:$versions.ratchet"
+    api "com.virgilsecurity:ratchet-android:${versions.ratchet}"
 
     // Android
-    compileOnly "com.google.android:android:$versions.android"
+//    compileOnly "com.google.android:android:${versions.android}"
 
     // Room
-    implementation "androidx.room:room-runtime:$versions.room"
-    implementation "androidx.room:room-ktx:$versions.room"
-    kapt "androidx.room:room-compiler:$versions.room"
+    implementation "androidx.room:room-runtime:${versions.room}"
+    implementation "androidx.room:room-ktx:${versions.room}"
+    kapt "androidx.room:room-compiler:${versions.room}"
 
     // Gson
-    implementation "com.google.code.gson:gson:$versions.gson"
+    implementation "com.google.code.gson:gson:${versions.gson}"
 
     // Tests core
-    testImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "androidx.test.ext:junit:$versions.testsRunner"
-    androidTestImplementation "androidx.test:runner:$versions.testsRunner"
+    testImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "androidx.test.ext:junit:${versions.testsRunner}"
+    androidTestImplementation "androidx.test:runner:${versions.testsRunner}"
 
     // Test internal
     androidTestImplementation project(':ethree-kotlin')
 
     // Virgil test common
-    implementation "com.virgilsecurity:test-common:$versions.virgilTestCommon"
+    implementation "com.virgilsecurity:test-common:${versions.virgilTestCommon}"
 }
 
 task generateVirgilInfo {

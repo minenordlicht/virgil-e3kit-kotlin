@@ -44,13 +44,13 @@ dependencies {
     api project(':ethree-common')
 
     // Virgil
-    implementation "com.virgilsecurity.sdk:android-utils:$versions.virgilSdk"
+    implementation "com.virgilsecurity.sdk:android-utils:${versions.virgilSdk}"
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
 
     // Android
-    compileOnly "com.google.android:android:$versions.android"
+    compileOnly "com.google.android:android:${versions.android}"
 }
 
 publishing {
