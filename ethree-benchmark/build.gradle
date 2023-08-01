@@ -31,11 +31,16 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-apply plugin: 'androidx.benchmark'
-
+plugins {
+    id("com.android.library")
+    id("kotlin-android")
+    id('androidx.benchmark')
+}
 android {
+    compileSdk = 33
     defaultConfig {
-        minSdkVersion androidOptions.minSdkVersionRegular
+        minSdk = 24
+        targetSdk = 33
         testInstrumentationRunner 'androidx.benchmark.junit4.AndroidBenchmarkRunner'
         testInstrumentationRunnerArgument 'androidx.benchmark.suppressErrors', 'EMULATOR,LOW_BATTERY'
     }
@@ -51,17 +56,17 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10"
 
     implementation project(":ethree-kotlin")
 
     // Virgil test common
-    implementation "com.virgilsecurity:test-common:${versions.virgilTestCommon}"
+    implementation "com.virgilsecurity:test-common:0.1"
 
     androidTestImplementation "androidx.test:runner:1.5.2"
-    androidTestImplementation "androidx.test.ext:junit:${versions.extJunit}"
-    androidTestImplementation "junit:junit:${versions.junit}"
-    androidTestImplementation "androidx.benchmark:benchmark-junit4:${versions.androidBenchmark}"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.benchmark:benchmark-junit4:1.1.1"
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
