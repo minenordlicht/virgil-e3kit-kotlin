@@ -65,7 +65,7 @@ android {
 
 dependencies {
     // Kotlin
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3"
 
     // Virgil SDK
