@@ -64,13 +64,3 @@ dependencies {
 
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId = 'ethree-enclave'
-            pom {
-                name = 'Virgil E3Kit Java/Kotlin SDK with Secure Enclave'
-            }
-        }
-    }
-}

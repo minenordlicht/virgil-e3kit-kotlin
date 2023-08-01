@@ -33,6 +33,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 android {
     compileSdk = 33
@@ -123,16 +124,6 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
     dependsOn(copyCompatDataFile)
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId = 'ethree-common'
-            pom {
-                name = 'Virgil E3Kit Kotlin Common'
-            }
-        }
-    }
-}
 
 task copyEnvFile(type: Copy) {
     def resourcesFolder = new File(project.projectDir.absolutePath + '/src/androidTest/resources/testProperties')

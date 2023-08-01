@@ -59,14 +59,3 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
 
 }
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId = 'ethree'
-            pom {
-                name = 'Virgil E3Kit Java/Kotlin SDK'
-            }
-        }
-    }
-}
