@@ -64,41 +64,39 @@ android {
 
 dependencies {
     // Kotlin
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3"
 
     // Virgil SDK
-    api "com.virgilsecurity.sdk:sdk-android:${versions.virgilSdk}"
-    api "com.virgilsecurity.sdk:crypto-android:${versions.virgilSdk}"
+    api "com.virgilsecurity.sdk:sdk-android:7.3.2"
+    api "com.virgilsecurity.sdk:crypto-android:7.3.2"
 
     // Virgil Pythia
-    api "com.virgilsecurity:pythia-android:${versions.pythia}"
-    api "com.virgilsecurity.crypto:pythia-android:${versions.virgilCrypto}"
+    api "com.virgilsecurity:pythia-android:0.3.7"
+    api "com.virgilsecurity.crypto:pythia-android:0.15.2"
 
     // Virgil Ratchet
-    api "com.virgilsecurity:ratchet-android:${versions.ratchet}"
+    api "com.virgilsecurity:ratchet-android:0.1.4"
 
-    // Android
-//    compileOnly "com.google.android:android:${versions.android}"
 
     // Room
-    implementation "androidx.room:room-runtime:${versions.room}"
-    implementation "androidx.room:room-ktx:${versions.room}"
-    kapt "androidx.room:room-compiler:${versions.room}"
+    implementation "androidx.room:room-runtime:2.2.3"
+    implementation "androidx.room:room-ktx:2.2.3"
+    kapt "androidx.room:room-compiler:2.2.3"
 
     // Gson
-    implementation "com.google.code.gson:gson:${versions.gson}"
+    implementation "com.google.code.gson:gson:2.8.6"
 
     // Tests core
-    testImplementation "junit:junit:${versions.junit}"
-    androidTestImplementation "androidx.test.ext:junit:${versions.extJunit}"
-    androidTestImplementation "androidx.test:runner:${versions.testsRunner}"
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test:runner:1.5.2"
 
     // Test internal
     androidTestImplementation project(':ethree-kotlin')
 
     // Virgil test common
-    implementation "com.virgilsecurity:test-common:${versions.virgilTestCommon}"
+    implementation "com.virgilsecurity:test-common:0.1"
 }
 
 task generateVirgilInfo {

@@ -45,16 +45,16 @@ dependencies {
     implementation project(':ethree-kotlin')
 
     // Kotlin
-    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
-    implementation "androidx.appcompat:appcompat:${versions.appCompat}"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.10"
+    implementation "androidx.appcompat:appcompat:1.1.0"
 
     // Tests core
-    testImplementation "junit:junit:${versions.junit}"
-    androidTestImplementation "androidx.test.ext:junit:${versions.extJunit}"
-    androidTestImplementation "androidx.test:runner:${versions.testsRunner}"
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test:runner:1.5.2"
 
     // Virgil test common
-    implementation "com.virgilsecurity:test-common:${versions.virgilTestCommon}"
+    implementation "com.virgilsecurity:test-common:0.1"
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
