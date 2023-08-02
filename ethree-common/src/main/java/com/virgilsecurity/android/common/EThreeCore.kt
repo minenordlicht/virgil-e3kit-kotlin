@@ -133,19 +133,27 @@ abstract class EThreeCore {
                           keyPairType: KeyPairType,
                           enableRatchet: Boolean,
                           keyRotationInterval: TimeSpan,
-                          context: Context) {
+                          context: Context,
+                          customServiceKey: String? = null) {
         logger.fine("Create new EThree instance for $identity")
 
         this.identity = identity
 
         val cardCrypto = VirgilCardCrypto(crypto)
         val virgilCardVerifier = VirgilCardVerifier(cardCrypto)
+        customServiceKey?.also {
+            virgilCardVerifier.setServiceKey(it)
+        }
         val httpClient = HttpClient(Const.ETHREE_NAME, VirgilInfo.VERSION)
         this.accessTokenProvider = CachingJwtProvider { Jwt(getTokenCallback.onGetToken()) }
 
         cardManager = CardManager(cardCrypto,
                                   accessTokenProvider,
-                                  VirgilCardVerifier(cardCrypto, false, false),
+                                  VirgilCardVerifier(cardCrypto, false, false).apply {
+                                      customServiceKey?.also {
+                                          setServiceKey(it)
+                                      }
+                                  },
                                   VirgilCardClient(VIRGIL_BASE_URL + VIRGIL_CARDS_SERVICE_PATH,
                                                    httpClient))
 

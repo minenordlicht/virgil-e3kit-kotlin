@@ -75,4 +75,6 @@ data class EThreeParams(
 
     // Default key pair type
     var keyPairType: KeyPairType = Defaults.keyPairType
+
+    var customCardVerifierServiceKey: String? = null
 }
