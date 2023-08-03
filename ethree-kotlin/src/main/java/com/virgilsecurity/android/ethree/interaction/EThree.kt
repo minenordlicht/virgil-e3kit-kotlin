@@ -59,14 +59,16 @@ class EThree
         keyChangedCallback: OnKeyChangedCallback? = null,
         keyPairType: KeyPairType = Defaults.keyPairType,
         enableRatchet: Boolean = Defaults.enableRatchet,
-        keyRotationInterval: TimeSpan = Defaults.keyRotationInterval
+        keyRotationInterval: TimeSpan = Defaults.keyRotationInterval,
+        customServiceKey: String? = null
 ) : EThreeCore(identity,
                tokenCallback,
                keyChangedCallback,
                keyPairType,
                enableRatchet,
                keyRotationInterval,
-               context) {
+               context,
+               customServiceKey) {
 
     override val keyStorage: KeyStorage
 
@@ -83,7 +85,8 @@ class EThree
         params.keyChangedCallback,
         params.keyPairType,
         params.enableRatchet,
-        params.keyRotationInterval)
+        params.keyRotationInterval,
+        params.customCardVerifierServiceKey)
 
     constructor(params: com.virgilsecurity.android.common.model.java.EThreeParams) : this(
         params.identity,
@@ -92,7 +95,8 @@ class EThree
         params.keyChangedCallback,
         params.keyPairType,
         params.enableRatchet,
-        params.keyRotationInterval)
+        params.keyRotationInterval,
+        params.customCardVerifierServiceKey)
 
     @JvmOverloads constructor(
             identity: String,
@@ -101,7 +105,8 @@ class EThree
             keyChangedCallback: OnKeyChangedCallback? = null,
             keyPairType: KeyPairType = Defaults.keyPairType,
             enableRatchet: Boolean = Defaults.enableRatchet,
-            keyRotationInterval: TimeSpan = Defaults.keyRotationInterval
+            keyRotationInterval: TimeSpan = Defaults.keyRotationInterval,
+            customServiceKey: String? = null
     ) : this(identity,
              object : OnGetTokenCallback {
                  override fun onGetToken(): String {
@@ -113,7 +118,8 @@ class EThree
              keyChangedCallback,
              keyPairType,
              enableRatchet,
-             keyRotationInterval)
+             keyRotationInterval,
+            customServiceKey)
 
     companion object {
         /**
