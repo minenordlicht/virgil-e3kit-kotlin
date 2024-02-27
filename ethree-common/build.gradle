@@ -36,10 +36,10 @@ plugins {
     id("kotlin-kapt")
 }
 android {
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         consumerProguardFiles 'proguard-rules.txt'
 
         javaCompileOptions {
@@ -54,19 +54,20 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
+    namespace = "com.virgilsecurity.android.common"
 }
 
 dependencies {
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0"
 
     // Virgil SDK
     api "com.virgilsecurity.sdk:sdk-android:7.3.2"
@@ -81,12 +82,12 @@ dependencies {
 
 
     // Room
-    implementation "androidx.room:room-runtime:2.5.1"
-    implementation "androidx.room:room-ktx:2.5.1"
-    kapt "androidx.room:room-compiler:2.5.1"
+    implementation "androidx.room:room-runtime:2.6.1"
+    implementation "androidx.room:room-ktx:2.6.1"
+    kapt "androidx.room:room-compiler:2.6.1"
 
     // Gson
-    implementation "com.google.code.gson:gson:2.8.6"
+    implementation "com.google.code.gson:gson:2.10.1"
 
     // Tests core
     testImplementation "junit:junit:4.13.2"
@@ -117,6 +118,12 @@ object VirgilInfo {
 }
 
 project.android.sourceSets.main.java.srcDirs = ["${buildDir}/generated/release/", "src/main/java"]
+
+tasks.configureEach {
+    if (name == "packageDebugResources" || name == "extractDeepLinksForAarDebug" || name == "extractDeepLinksDebug") {
+        mustRunAfter(tasks.generateVirgilInfo)
+    }
+}
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
     dependsOn(generateVirgilInfo)

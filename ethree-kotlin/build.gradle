@@ -35,20 +35,21 @@ plugins {
     id("kotlin-android")
 }
 android {
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         consumerProguardFiles 'proguard-rules.txt'
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
+    namespace = "com.virgilsecurity.android.ethree.interaction"
 }
 
 dependencies {
@@ -56,6 +57,6 @@ dependencies {
     api project(':ethree-common')
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
 
 }

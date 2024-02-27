@@ -40,7 +40,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.4.2"
+        classpath "com.android.tools.build:gradle:8.2.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.9.18"
         classpath "digital.wup:android-maven-publish:3.6.2"
@@ -131,10 +131,10 @@ subprojects {
     }
 
     android {
-        compileSdkVersion 33
+        compileSdkVersion 34
 
         defaultConfig {
-            targetSdkVersion 33
+            targetSdkVersion 34
             minSdkVersion 24
         }
         buildTypes {
@@ -150,8 +150,8 @@ subprojects {
         }
     }
 
-    sourceCompatibility = "8"
-    targetCompatibility = "8"
+    sourceCompatibility = JavaVersion.VERSION_17.toString()//"8"
+    targetCompatibility = JavaVersion.VERSION_17.toString()//"8"
 
     if (isRegular) {
         task sourcesJar(type: Jar) {
