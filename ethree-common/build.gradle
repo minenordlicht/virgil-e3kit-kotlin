@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 /*
  * Copyright (c) 2015-2020, Virgil Security, Inc.
  *
@@ -119,18 +121,21 @@ object VirgilInfo {
 
 project.android.sourceSets.main.java.srcDirs = ["${buildDir}/generated/release/", "src/main/java"]
 
+
+def dependentTasks = ["packageDebugResources","extractDeepLinksForAarDebug","extractDeepLinksDebug","packageReleaseResources","extractDeepLinksForAarRelease", "mergeReleaseResources", "extractDeepLinksRelease"]
+
 tasks.configureEach {
-    if (name == "packageDebugResources" || name == "extractDeepLinksForAarDebug" || name == "extractDeepLinksDebug") {
-        mustRunAfter(tasks.generateVirgilInfo)
+    if(dependentTasks.contains(it.name)){
+        it.mustRunAfter(tasks.generateVirgilInfo)
     }
 }
 
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+
+tasks.withType(KotlinCompile).all {
     dependsOn(generateVirgilInfo)
     dependsOn(copyEnvFile)
     dependsOn(copyCompatDataFile)
 }
-
 
 task copyEnvFile(type: Copy) {
     def resourcesFolder = new File(project.projectDir.absolutePath + '/src/androidTest/resources/testProperties')
