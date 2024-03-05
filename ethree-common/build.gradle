@@ -59,9 +59,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
+    kotlin {
+        jvmToolchain(17)
+    }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = "17"//JavaVersion.VERSION_17.toString()
     }
     namespace = "com.virgilsecurity.android.common"
 }

@@ -156,12 +156,12 @@ subprojects {
     if (isRegular) {
         task sourcesJar(type: Jar) {
             from(project.android.sourceSets.main.java.srcDirs)
-            classifier = 'sources'
+            archiveClassifier = 'sources'
         }
 
         task javadocJar(type: Jar, dependsOn: 'dokka') {
             from("$buildDir/javadoc")
-            classifier = 'javadoc'
+            archiveClassifier = 'javadoc'
         }
 
         def authentication_username = getGradleOrSystemProperty('authentication_username', project)

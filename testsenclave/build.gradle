@@ -33,10 +33,17 @@
 
 android {
     defaultConfig {
-        targetSdk = 33
+        targetSdk = 34
         applicationId "com.virgilsecurity.android.testsenclave"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    kotlin {
+        jvmToolchain(17)
+    }
+    kotlinOptions {
+        jvmTarget = "17"//JavaVersion.VERSION_17.toString()
+    }
+    namespace = "com.virgilsecurity.android.testsenclave"
 }
 
 dependencies {

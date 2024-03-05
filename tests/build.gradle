@@ -38,6 +38,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
+    kotlin {
+        jvmToolchain(17)
+    }
+    kotlinOptions {
+        jvmTarget = "17"//JavaVersion.VERSION_17.toString()
+    }
+    namespace = "com.virgilsecurity.android.ethree"
 }
 
 dependencies {
