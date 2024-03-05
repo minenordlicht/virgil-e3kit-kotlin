@@ -105,10 +105,10 @@ dependencies {
     implementation "com.virgilsecurity:test-common:0.1"
 }
 
-task generateVirgilInfo {
-    outputs.dir "$buildDir/generated"
+tasks.register('generateVirgilInfo') {
+    outputs.dir "${rootProject.layout.buildDirectory}/generated"
     doFirst {
-        def versionFile = file("$buildDir/generated/release/com/virgilsecurity/android/common/build/VirgilInfo.kt")
+        def versionFile = file("${rootProject.layout.buildDirectory}/generated/release/com/virgilsecurity/android/common/build/VirgilInfo.kt")
         versionFile.parentFile.mkdirs()
         versionFile.text =
                 """
@@ -121,7 +121,7 @@ object VirgilInfo {
     }
 }
 
-project.android.sourceSets.main.java.srcDirs = ["${buildDir}/generated/release/", "src/main/java"]
+project.android.sourceSets.main.java.srcDirs = ["${rootProject.layout.buildDirectory}/generated/release/", "src/main/java"]
 
 
 def dependentTasks = ["packageDebugResources","extractDeepLinksForAarDebug","extractDeepLinksDebug","packageReleaseResources","extractDeepLinksForAarRelease", "mergeReleaseResources", "extractDeepLinksRelease"]

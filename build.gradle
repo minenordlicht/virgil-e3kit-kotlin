@@ -40,7 +40,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:8.2.2"
+        classpath 'com.android.tools.build:gradle:8.3.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.9.18"
         classpath "digital.wup:android-maven-publish:3.6.2"
@@ -145,13 +145,13 @@ subprojects {
                 minifyEnabled false
             }
         }
-        lintOptions {
+        lint {
             abortOnError false
         }
     }
 
-    sourceCompatibility = JavaVersion.VERSION_17.toString()//"8"
-    targetCompatibility = JavaVersion.VERSION_17.toString()//"8"
+    sourceCompatibility = JavaVersion.VERSION_17.toString()
+    targetCompatibility = JavaVersion.VERSION_17.toString()
 
     if (isRegular) {
         task sourcesJar(type: Jar) {
@@ -225,12 +225,12 @@ subprojects {
 
         dokka {
             outputFormat = 'html'
-            outputDirectory = "$buildDir/javadoc"
+            outputDirectory = "${rootProject.layout.buildDirectory}/javadoc"
             reportUndocumented = false
         }
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+tasks.register('clean', Delete) {
+    delete rootProject.layout.buildDirectory
 }

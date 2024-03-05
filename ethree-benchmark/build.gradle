@@ -39,10 +39,10 @@ plugins {
 android {
     compileSdk = 34
     defaultConfig {
+        testInstrumentationRunnerArguments suppressErrors: 'EMULATOR,LOW_BATTERY'
         minSdk = 24
         targetSdk = 34
         testInstrumentationRunner 'androidx.benchmark.junit4.AndroidBenchmarkRunner'
-        testInstrumentationRunnerArgument 'androidx.benchmark.suppressErrors', 'EMULATOR,LOW_BATTERY'
     }
 
     buildTypes {
