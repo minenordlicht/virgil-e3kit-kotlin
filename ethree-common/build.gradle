@@ -74,15 +74,26 @@ dependencies {
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0"
 
     // Virgil SDK
-    api "com.virgilsecurity.sdk:sdk-android:7.3.2"
-    api "com.virgilsecurity.sdk:crypto-android:7.3.2"
+    api ("com.virgilsecurity.sdk:sdk-android:7.3.2"){
+        exclude group: "com.github.kittinunf.fuel", module: "fuel"
+    }
+    api ("com.virgilsecurity.sdk:crypto-android:7.3.2"){
+        exclude group: "com.github.kittinunf.fuel", module: "fuel"
+    }
 
     // Virgil Pythia
-    api "com.virgilsecurity:pythia-android:0.3.7"
-    api "com.virgilsecurity.crypto:pythia-android:0.15.2"
+    api ("com.virgilsecurity:pythia-android:0.3.7") {
+        exclude group: "com.github.kittinunf.fuel", module: "fuel"
+    }
+
+    api ("com.virgilsecurity.crypto:pythia-android:0.15.2"){
+        exclude group: "com.github.kittinunf.fuel", module: "fuel"
+    }
 
     // Virgil Ratchet
-    api "com.virgilsecurity:ratchet-android:0.1.4"
+    api ("com.virgilsecurity:ratchet-android:0.1.4"){
+        exclude group: "com.github.kittinunf.fuel", module: "fuel"
+    }
 
 
     // Room
