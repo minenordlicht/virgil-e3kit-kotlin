@@ -70,7 +70,7 @@ android {
 
 dependencies {
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.21"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0"
 
     // Virgil SDK
@@ -106,8 +106,8 @@ dependencies {
 
     // Tests core
     testImplementation "junit:junit:4.13.2"
-    androidTestImplementation "androidx.test.ext:junit:1.1.5"
-    androidTestImplementation "androidx.test:runner:1.5.2"
+    androidTestImplementation "androidx.test.ext:junit:1.2.1"
+    androidTestImplementation "androidx.test:runner:1.6.2"
 
     // Test internal
     androidTestImplementation project(':ethree-kotlin')
