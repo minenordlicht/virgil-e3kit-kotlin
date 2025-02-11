@@ -38,10 +38,10 @@ plugins {
     id("kotlin-kapt")
 }
 android {
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         consumerProguardFiles 'proguard-rules.txt'
 
         javaCompileOptions {

@@ -130,10 +130,10 @@ subprojects {
     }
 
     android {
-        compileSdkVersion 34
+        compileSdkVersion 35
 
         defaultConfig {
-            targetSdkVersion 34
+            targetSdkVersion 35
             minSdkVersion 24
         }
         buildTypes {
