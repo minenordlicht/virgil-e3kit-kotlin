@@ -63,7 +63,7 @@ dependencies {
     implementation "com.virgilsecurity.sdk:android-utils:7.3.2"
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.21"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.2.20"
 
 }
 

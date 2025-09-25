@@ -35,23 +35,22 @@ buildscript {
 
     repositories {
         google()
-        jcenter()
         mavenCentral()
         mavenLocal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.8.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21"
-        classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.9.18"
-        classpath "digital.wup:android-maven-publish:3.6.2"
+        classpath 'com.android.tools.build:gradle:8.13.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20"
+//        classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.9.18"
+//        classpath "digital.wup:android-maven-publish:3.6.3"
         classpath "androidx.benchmark:benchmark-gradle-plugin:1.3.3"
+        classpath "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:2.2.20-2.0.2"
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
         mavenCentral()
         mavenLocal()
     }
@@ -110,8 +109,8 @@ subprojects {
 
     if (isRegular) {
         apply plugin: 'com.android.library'
-        apply plugin: 'digital.wup.android-maven-publish'
-        apply plugin: 'org.jetbrains.dokka'
+//        apply plugin: 'digital.wup.android-maven-publish'
+//        apply plugin: 'org.jetbrains.dokka'
         apply plugin: 'signing'
         apply plugin: 'maven-publish'
     } else if (isTest) {
@@ -126,7 +125,7 @@ subprojects {
 
     if (it.name == 'ethree-common') {
         apply from: '../tests-verbal-output.gradle'
-        apply plugin: 'kotlin-kapt'
+        apply plugin: 'com.google.devtools.ksp'
     }
 
     android {
@@ -147,10 +146,18 @@ subprojects {
         lint {
             abortOnError false
         }
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
+        }
     }
 
-    sourceCompatibility = JavaVersion.VERSION_17.toString()
-    targetCompatibility = JavaVersion.VERSION_17.toString()
+//    compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_17
+//        targetCompatibility = JavaVersion.VERSION_17
+//    }
+//    sourceCompatibility = JavaVersion.VERSION_17.toString()
+//    targetCompatibility = JavaVersion.VERSION_17.toString()
 
     if (isRegular) {
         task sourcesJar(type: Jar) {
@@ -158,75 +165,75 @@ subprojects {
             archiveClassifier = 'sources'
         }
 
-        task javadocJar(type: Jar, dependsOn: 'dokka') {
-            from("$buildDir/javadoc")
-            archiveClassifier = 'javadoc'
-        }
+//        task javadocJar(type: Jar, dependsOn: 'dokka') {
+//            from("$buildDir/javadoc")
+//            archiveClassifier = 'javadoc'
+//        }
 
-        def authentication_username = getGradleOrSystemProperty('authentication_username', project)
-        def authentication_password = getGradleOrSystemProperty('authentication_password', project)
+//        def authentication_username = getGradleOrSystemProperty('authentication_username', project)
+//        def authentication_password = getGradleOrSystemProperty('authentication_password', project)
 
-        publishing {
-            publications {
-                mavenJava(MavenPublication) {
-                    artifact javadocJar
-                    artifact sourcesJar
-                    from components.android
+//        publishing {
+//            publications {
+//                mavenJava(MavenPublication) {
+//                    artifact javadocJar
+//                    artifact sourcesJar
+//                    from components.android
+//
+//                    pom {
+//                        description = 'Virgil Security provides an SDK which symplifies work with Virgil services and presents easy to use API for adding security to any application. In a few simple steps you can setup user encryption with multidevice support.'
+//                        url = 'https://www.virgilsecurity.com/'
+//                        licenses {
+//                            license {
+//                                name = 'Virgil Security, Inc. license'
+//                                url = 'https://github.com/VirgilSecurity/virgil-e3kit-kotlin/blob/master/LICENSE.txt'
+//                            }
+//                        }
+//                        developers {
+//                            developer {
+//                                id = 'BuddahLD'
+//                                name = 'Danylo Oliinyk'
+//                                email = 'doliinyk@virgilsecurity.com'
+//                                organizationUrl = 'https://github.com/BuddahLD'
+//                            }
+//                            developer {
+//                                id = 'andrii-iakovenko'
+//                                name = 'Andrii Iakovenko'
+//                                email = 'andrii-iakovenko@gmail.com'
+//                                organizationUrl = 'https://github.com/andrii-iakovenko'
+//                            }
+//                        }
+//                        scm {
+//                            connection = 'scm:git:https://github.com/VirgilSecurity/virgil-e3kit-kotlin.git'
+//                            developerConnection = 'scm:git:git@github.com:VirgilSecurity/virgil-e3kit-kotlin.git'
+//                            url = 'https://github.com/VirgilSecurity/virgil-e3kit-kotlin'
+//                        }
+//                    }
+//                }
+//            }
+//
+//            repositories {
+//                maven {
+//                    def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+//                    def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+//                    url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+//                    credentials {
+//                        username "${authentication_username}"
+//                        password "${authentication_password}"
+//                    }
+//                }
+//            }
+//        }
 
-                    pom {
-                        description = 'Virgil Security provides an SDK which symplifies work with Virgil services and presents easy to use API for adding security to any application. In a few simple steps you can setup user encryption with multidevice support.'
-                        url = 'https://www.virgilsecurity.com/'
-                        licenses {
-                            license {
-                                name = 'Virgil Security, Inc. license'
-                                url = 'https://github.com/VirgilSecurity/virgil-e3kit-kotlin/blob/master/LICENSE.txt'
-                            }
-                        }
-                        developers {
-                            developer {
-                                id = 'BuddahLD'
-                                name = 'Danylo Oliinyk'
-                                email = 'doliinyk@virgilsecurity.com'
-                                organizationUrl = 'https://github.com/BuddahLD'
-                            }
-                            developer {
-                                id = 'andrii-iakovenko'
-                                name = 'Andrii Iakovenko'
-                                email = 'andrii-iakovenko@gmail.com'
-                                organizationUrl = 'https://github.com/andrii-iakovenko'
-                            }
-                        }
-                        scm {
-                            connection = 'scm:git:https://github.com/VirgilSecurity/virgil-e3kit-kotlin.git'
-                            developerConnection = 'scm:git:git@github.com:VirgilSecurity/virgil-e3kit-kotlin.git'
-                            url = 'https://github.com/VirgilSecurity/virgil-e3kit-kotlin'
-                        }
-                    }
-                }
-            }
+//        signing {
+//            sign publishing.publications.mavenJava
+//        }
 
-            repositories {
-                maven {
-                    def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-                    def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
-                    url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-                    credentials {
-                        username "${authentication_username}"
-                        password "${authentication_password}"
-                    }
-                }
-            }
-        }
-
-        signing {
-            sign publishing.publications.mavenJava
-        }
-
-        dokka {
-            outputFormat = 'html'
-            outputDirectory = "${rootProject.layout.buildDirectory}/javadoc"
-            reportUndocumented = false
-        }
+//        dokka {
+//            outputFormat = 'html'
+//            outputDirectory = "${rootProject.layout.buildDirectory}/javadoc"
+//            reportUndocumented = false
+//        }
     }
 }
 
