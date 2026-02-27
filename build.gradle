@@ -36,7 +36,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        mavenLocal()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.13.0'
@@ -52,7 +51,27 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        mavenLocal()
+        maven {
+            url "https://maven.aliyun.com/repository/public"
+        }
+        maven {
+            url "https://jitpack.io"
+        }
+        maven {
+            url "https://jcenter.bintray.com/"
+        }
+        maven {
+            url "https://central.sonatype.com/repository/maven-snapshots/"
+        }
+    }
+
+    configurations.configureEach {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'com.virgilsecurity.sdk') {
+                details.useVersion(versions.virgilSdk)
+                details.because("Pin Virgil SDK artifacts to ${versions.virgilSdk}")
+            }
+        }
     }
 }
 
@@ -95,17 +114,27 @@ def getGradleOrSystemProperty(String name, Project project) {
 final String BASE_VIRGIL_PACKAGE = 'com.virgilsecurity'
 
 // Packages versions
-final String SDK_VERSION = '2.0.10'
+final String SDK_VERSION = '2.1.0'
+
+final Map<String, String> namespaces = [
+        'ethree-common'   : 'com.virgilsecurity.android.common',
+        'ethree-kotlin'   : 'com.virgilsecurity.android.ethree.interaction',
+        'ethree-enclave'  : 'com.virgilsecurity.android.ethreeenclave',
+        'tests'           : 'com.virgilsecurity.android.ethree',
+        'testsenclave'    : 'com.virgilsecurity.android.testsenclave',
+        'ethree-benchmark': 'com.virgilsecurity.android.ethree_benchmark',
+]
 
 subprojects {
+    def moduleName = project.name
     group BASE_VIRGIL_PACKAGE
     version SDK_VERSION
 
-    def isRegular = (it.name == 'ethree-common'
-            || it.name == 'ethree-kotlin'
-            || it.name == 'ethree-enclave')
-    def isTest = (it.name == 'tests' || it.name == 'testsenclave')
-    def isBenchmark = (it.name == 'ethree-benchmark')
+    def isRegular = (moduleName == 'ethree-common'
+            || moduleName == 'ethree-kotlin'
+            || moduleName == 'ethree-enclave')
+    def isTest = (moduleName == 'tests' || moduleName == 'testsenclave')
+    def isBenchmark = (moduleName == 'ethree-benchmark')
 
     if (isRegular) {
         apply plugin: 'com.android.library'
@@ -123,7 +152,7 @@ subprojects {
     apply plugin: 'kotlin-android'
     apply plugin: 'kotlin-parcelize'
 
-    if (it.name == 'ethree-common') {
+    if (moduleName == 'ethree-common') {
         apply from: '../tests-verbal-output.gradle'
         apply plugin: 'com.google.devtools.ksp'
     }

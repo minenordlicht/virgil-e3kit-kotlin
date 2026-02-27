@@ -146,7 +146,7 @@ tasks.configureEach {
 }
 
 
-tasks.withType(KotlinCompile).all {
+tasks.withType(KotlinCompile).configureEach {
     dependsOn(generateVirgilInfo)
     dependsOn(copyEnvFile)
     dependsOn(copyCompatDataFile)
@@ -161,6 +161,8 @@ task copyEnvFile(type: Copy) {
 }
 
 task copyCompatDataFile(type: Copy) {
+    dependsOn(copyEnvFile)
+
     def resourcesFolder = new File(project.projectDir.absolutePath + '/src/androidTest/resources/compat')
     if (!resourcesFolder.exists()) resourcesFolder.mkdirs()
 
