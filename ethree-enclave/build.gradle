@@ -60,7 +60,7 @@ dependencies {
     api project(':ethree-common')
 
     // Virgil
-    implementation "com.virgilsecurity.sdk:android-utils:7.3.2"
+    implementation "com.virgilsecurity.sdk:android-utils:7.4.0"
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:2.2.20"

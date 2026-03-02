@@ -52,7 +52,7 @@ dependencies {
     implementation project(':ethree-enclave')
 
     // Virgil
-    androidTestImplementation "com.virgilsecurity.sdk:android-utils:7.3.2"
+    androidTestImplementation "com.virgilsecurity.sdk:android-utils:7.4.0"
 
     // Kotlin
     implementation "androidx.appcompat:appcompat:1.1.0"
